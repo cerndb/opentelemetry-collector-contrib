@@ -1,0 +1,7 @@
+type: cerndebug
+
+status:
+  class: processor
+  stability:
+    development: [logs, metrics, traces]
+  distributions: []
