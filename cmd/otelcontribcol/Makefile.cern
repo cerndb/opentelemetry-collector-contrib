@@ -1,0 +1,47 @@
+localhome=/home/icoteril/workspace/open-telemetry/opentelemetry-collector-contrib
+
+local:
+	sed -i 's#\.\./\.\.#${localhome}#g' builder-config.yaml
+
+clean:
+	sed -i '/alibaba/d' builder-config.yaml
+	sed -i '/f5cloud/d' builder-config.yaml
+	sed -i '/coralog/d' builder-config.yaml
+	sed -i '/aws/d' builder-config.yaml
+	sed -i '/dynatrace/d' builder-config.yaml
+	sed -i '/google/d' builder-config.yaml
+	sed -i '/instana/d' builder-config.yaml
+	sed -i '/datadog/d' builder-config.yaml
+	sed -i '/cassandra/d' builder-config.yaml
+	sed -i '/logic/d' builder-config.yaml
+	sed -i '/logzio/d' builder-config.yaml
+	sed -i '/loki/d' builder-config.yaml
+	sed -i '/mezmo/d' builder-config.yaml
+	sed -i '/sapm/d' builder-config.yaml
+	sed -i '/pulsar/d' builder-config.yaml
+	sed -i '/signalfx/d' builder-config.yaml
+	sed -i '/skywalking/d' builder-config.yaml
+	sed -i '/splunk/d' builder-config.yaml
+	sed -i '/tanzuo/d' builder-config.yaml
+	sed -i '/tencent/d' builder-config.yaml
+	sed -i '/dataset/d' builder-config.yaml
+	sed -i '/azuredataexplorer/d' builder-config.yaml
+	sed -i '/azuremonitor/d' builder-config.yaml
+	sed -i '/opencensus/d' builder-config.yaml
+	sed -i '/carbonexporter/d' builder-config.yaml
+	sed -i '/windows/d' builder-config.yaml
+	sed -i '/webhookevent/d' builder-config.yaml
+	sed -i '/wavefront/d' builder-config.yaml
+	sed -i '/snowflake/d' builder-config.yaml
+	sed -i '/puref\|vcenter\|sshcheck\|statsd\|sqlserver\|sqlquery/d' builder-config.yaml
+	sed -i '/activedirectory\|aerospike\|apache\|apachespark\|bigip\|chrony\|cloudflare/d' builder-config.yaml
+	sed -i '/cloudfoundry\|couchdb\|dockerstats\|expvar\|flinkmetrics\|haproxy/d' builder-config.yaml
+	sed -i '/httpcheck\|iisreceiver\|influxdb\|kafkametrics\|k8s\|kubelet\|memcached\|mongodb/d' builder-config.yaml
+	sed -i '/mysql\|nginx\|nsxtre\|oracle\|podman\|postgres\|rabbitmq\|redis\|riak\|solace/d' builder-config.yaml
+	sed -i '/snmp/d' builder-config.yaml
+
+
+build:
+	ocb --config builder-config.yaml
+
+
