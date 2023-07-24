@@ -1,0 +1,25 @@
+localhome=/home/icoteril/workspace/open-telemetry/opentelemetry-collector-contrib
+
+clean:
+	sed -i '/alibaba\|f5cloud\|coralog\|aws\|dynatrace\|google\|instana\|datadog\|cassandra\|logic/d' builder-config.yaml
+	sed -i '/logzio\|loki\|mezmo\|sapm\|pulsar\|signalfx\|skywalking\|splunk\|tanzuo\|tencent\|dataset/d' builder-config.yaml
+	sed -i '/azuredataexplorer\|azuremonitor\|opencensus\|carbon\|window\|webhookevent\|wavefront\|snowflake/d' builder-config.yaml
+	sed -i '/puref\|vcenter\|sshcheck\|statsd\|sqlserver\|sqlquery/d' builder-config.yaml
+	sed -i '/activedirectory\|aerospike\|apache\|apachespark\|bigip\|chrony\|cloudflare/d' builder-config.yaml
+	sed -i '/cloudfoundry\|couchdb\|dockerstats\|expvar\|flinkmetrics\|haproxy/d' builder-config.yaml
+	sed -i '/httpcheck\|iisreceiver\|influxdbrec\|kafkametrics\|k8s\|kubelet\|memcached\|mongodb/d' builder-config.yaml
+	sed -i '/mysql\|nginx\|nsxtre\|oracle\|podman\|postgres\|rabbitmq\|redis\|riak\|solace/d' builder-config.yaml
+	sed -i '/snmp\|clickhouse\|collectd\|jmxreceiver\|journald\|simpleprometheus\|zipkinreceiver\|receivecreator/d' builder-config.yaml
+	sed -i '/zookeeper\|syslogreceiver\|tcplogreceiver\|udplogreceiver\|prometheusreceiver\|hostmetrics\|elasticsearch/d' builder-config.yaml
+
+monit:
+	sed -i 's/name: otelcontribcol/name: monit-otelcontribcol/' builder-config.yaml
+
+local: clean monit
+	sed -i 's#\.\./\.\.#${localhome}#g' builder-config.yaml
+
+
+build:
+	ocb --config builder-config.yaml
+
+
