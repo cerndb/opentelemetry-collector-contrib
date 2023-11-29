@@ -11,6 +11,7 @@ clean:
 	sed -i '/mysql\|nginx\|nsxtre\|oracle\|podman\|postgres\|rabbitmq\|redis\|riak\|solace/d' builder-config.yaml
 	sed -i '/snmp\|clickhouse\|collectd\|jmxreceiver\|journald\|simpleprometheus\|zipkinreceiver\|receivecreator/d' builder-config.yaml
 	sed -i '/zookeeper\|syslogreceiver\|tcplogreceiver\|udplogreceiver\|prometheusreceiver\|hostmetrics\|elasticsearch/d' builder-config.yaml
+	sed -i '/honeycomb\|sentry/d' builder-config.yaml
 
 monit:
 	sed -i 's/name: otelcontribcol/name: monit-otelcontribcol/' builder-config.yaml
