@@ -19,6 +19,8 @@ monit:
 local: clean monit
 	sed -i 's#\.\./\.\.#${localhome}#g' builder-config.yaml
 
+local2: monit
+	sed -i 's#\.\./\.\.#${localhome}#g' builder-config.yaml
 
 build:
 	ocb --config builder-config.yaml
